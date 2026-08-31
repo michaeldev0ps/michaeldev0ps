@@ -1,29 +1,27 @@
----
+﻿---
 const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-	<div class="group">
-		<p>MichaelDevOps � Backend & DevOps Engineer</p>
-		<p>&copy; {currentYear} Michaeldevops</p>
-	</div>
-	<p class="socials">
-		<a href="mailto:michealdevops@gmail.com">michealdevops@gmail.com</a>
-		<a href="https://github.com/michaeldev0ps">GitHub</a>
-	</p>
+	<div class="footer-lead"><span>Available for thoughtful builds</span><a href="mailto:michealdevops@gmail.com">michealdevops@gmail.com ↗</a></div>
+	<div class="footer-meta"><span>MichaelDevOps · Backend &amp; DevOps</span><span>&copy; {currentYear}</span><a href="https://github.com/michaeldev0ps">GitHub ↗</a></div>
 </footer>
 <style>
 	footer {
 		display: flex;
-		flex-direction: column;
-		gap: 2rem;
+		display: grid;
+		gap: 3rem;
 		margin-top: auto;
 		padding: 3rem 2rem 3.5rem;
-		text-align: center;
+		text-align: left;
 		color: var(--gray-300);
 		font-size: var(--text-sm);
 		border-top: 1px solid rgba(148, 163, 184, 0.15);
 	}
+	.footer-lead { display: grid; gap: .75rem; }
+	.footer-lead span { color: var(--accent-light); text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; }
+	.footer-lead a { font-size: clamp(1.5rem, 4vw, 3rem); color: var(--gray-100); text-decoration: none; }
+	.footer-meta { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; color: var(--gray-400); font-size: .85rem; }
 
 	footer a {
 		color: var(--gray-200);
@@ -36,34 +34,10 @@ const currentYear = new Date().getFullYear();
 		color: var(--accent-light);
 	}
 
-	.group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.socials {
-		display: flex;
-		justify-content: center;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-
 	@media (min-width: 50em) {
 		footer {
-			flex-direction: row;
-			justify-content: space-between;
 			padding: 2.5rem 4.5rem 3rem;
-		}
-
-		.group {
-			flex-direction: row;
-			gap: 1rem;
-			flex-wrap: wrap;
-		}
-
-		.socials {
-			justify-content: flex-end;
 		}
 	}
 </style>
+
