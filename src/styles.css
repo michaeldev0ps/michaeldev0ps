@@ -1,0 +1,225 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system: "Signal" — a terminal-native, systems-engineer aesthetic.
+ * Deep ink background, phosphor-cyan signal, warm amber alerts.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-signal: var(--signal);
+  --color-signal-dim: var(--signal-dim);
+  --color-amber: var(--amber);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-sans);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.16 0.021 200);
+  --foreground: oklch(0.95 0.01 200);
+  --surface: oklch(0.2 0.024 200);
+  --surface-2: oklch(0.245 0.028 200);
+  --card: oklch(0.2 0.024 200);
+  --card-foreground: oklch(0.95 0.01 200);
+  --popover: oklch(0.2 0.024 200);
+  --popover-foreground: oklch(0.95 0.01 200);
+  --primary: oklch(0.82 0.155 178);
+  --primary-foreground: oklch(0.17 0.03 200);
+  --signal: oklch(0.82 0.155 178);
+  --signal-dim: oklch(0.55 0.09 185);
+  --amber: oklch(0.82 0.15 78);
+  --secondary: oklch(0.245 0.028 200);
+  --secondary-foreground: oklch(0.95 0.01 200);
+  --muted: oklch(0.245 0.028 200);
+  --muted-foreground: oklch(0.68 0.022 200);
+  --accent: oklch(0.28 0.05 190);
+  --accent-foreground: oklch(0.95 0.01 200);
+  --destructive: oklch(0.63 0.21 25);
+  --destructive-foreground: oklch(0.98 0.01 200);
+  --border: oklch(0.32 0.03 200 / 60%);
+  --input: oklch(0.32 0.03 200 / 60%);
+  --ring: oklch(0.82 0.155 178 / 50%);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --gradient-signal: linear-gradient(
+    135deg,
+    var(--signal) 0%,
+    oklch(0.78 0.13 200) 50%,
+    oklch(0.72 0.14 150) 100%
+  );
+  --shadow-signal: 0 0 0 1px oklch(0.82 0.155 178 / 20%),
+    0 18px 60px -24px oklch(0.82 0.155 178 / 45%);
+  --shadow-lift: 0 30px 80px -40px oklch(0 0 0 / 90%);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: oklch(0.82 0.155 178 / 30%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--surface-2);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--signal-dim);
+  }
+}
+
+@utility text-signal-gradient {
+  background: var(--gradient-signal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility grid-lines {
+  background-image: linear-gradient(
+      to right,
+      oklch(0.82 0.155 178 / 6%) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, oklch(0.82 0.155 178 / 6%) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    oklch(1 0 0 / 3%) 0px,
+    oklch(1 0 0 / 3%) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+@utility glass-panel {
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+}
+
+@keyframes blink-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@utility animate-caret {
+  animation: blink-caret 1s steps(1) infinite;
+}
+
+@utility animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+@utility animate-marquee {
+  animation: marquee-x 28s linear infinite;
+}
+
+@utility animate-pulse-ring {
+  animation: pulse-ring 2.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
