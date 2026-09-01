@@ -206,6 +206,44 @@ h5 {
 
 .page {
 	padding-bottom: 6rem;
+	animation: page-arrive 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-title {
+	animation: title-arrive 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.card {
+	transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover,
+.card:focus-within {
+	transform: translateY(-0.45rem);
+	border-color: rgba(94, 234, 212, 0.55);
+	box-shadow: 0 18px 42px rgba(2, 6, 23, 0.45), 0 0 28px rgba(34, 211, 238, 0.1);
+}
+
+.card-grid .card:nth-child(2) { animation-delay: 0.08s; }
+.card-grid .card:nth-child(3) { animation-delay: 0.16s; }
+
+@keyframes page-arrive {
+	from { opacity: 0; transform: translateY(1rem); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes title-arrive {
+	from { opacity: 0; letter-spacing: 0.08em; transform: translateY(0.5rem); }
+	to { opacity: 1; letter-spacing: normal; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 .section {
