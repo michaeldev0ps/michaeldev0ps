@@ -252,6 +252,23 @@ h5 {
 	}
 }
 
+/* Product-showcase visual layer */
+body { background: var(--color-void); }
+.backgrounds { background-color: var(--color-void) !important; background-image: linear-gradient(rgba(34,211,238,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,.035) 1px, transparent 1px), radial-gradient(circle at 12% 10%, rgba(34,211,238,.12), transparent 35%), radial-gradient(circle at 88% 45%, rgba(34,197,94,.08), transparent 35%) !important; background-size: 4rem 4rem, 4rem 4rem, auto, auto !important; background-blend-mode: normal !important; }
+.page { padding-top: 4rem; }
+.hero { min-height: 72vh; padding: 8rem 0 5rem; }
+.hero-title { font-size: clamp(3.8rem, 10vw, 8rem); letter-spacing: -.06em; background: linear-gradient(120deg, var(--gray-0) 35%, var(--accent-regular)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-panel { border-radius: 1.5rem; background: rgba(11,15,20,.72); border-color: rgba(94,234,212,.2); }
+.section { padding: 7rem 0; border-top-color: rgba(94,234,212,.16); }
+.section-header h2 { font-size: clamp(2.8rem, 6vw, 5rem); letter-spacing: -.05em; }
+.card-grid { gap: 1.75rem; }
+.card { min-height: 15rem; border-radius: 1rem; background: rgba(11,20,24,.72); border-color: rgba(94,234,212,.18); }
+.card h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+.tag { background: transparent; border: 1px solid rgba(34,211,238,.45); color: var(--accent-light); }
+.quick-list li { border-color: rgba(94,234,212,.16); background: rgba(11,20,24,.52); }
+.skill-badges span { border-color: rgba(94,234,212,.25); background: rgba(11,20,24,.6); }
+nav { backdrop-filter: blur(18px); }
+
 .card { position: relative; }
 .card::after { content: ""; position: absolute; right: 1.25rem; top: 1.25rem; width: .45rem; height: .45rem; border-radius: 50%; background: var(--color-signal); animation: status-pulse 2.4s ease-out infinite; }
 @keyframes status-pulse { 0%, 100% { box-shadow: 0 0 0 0 var(--accent-overlay); opacity: .7; } 50% { box-shadow: 0 0 0 .5rem transparent; opacity: 1; } }
