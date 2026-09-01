@@ -55,6 +55,14 @@ export function Hero() {
         className="relative mx-auto grid w-full max-w-6xl gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center"
       >
         <div>
+          <motion.img
+            src="/author.jpg"
+            alt="MichaelDevOps"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, type: "spring", stiffness: 180, damping: 18 }}
+            className="mb-5 h-16 w-16 rounded-full border border-signal/40 object-cover object-top shadow-[0_0_30px_oklch(0.82_0.155_178/18%)]"
+          />
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
