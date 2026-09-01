@@ -40,10 +40,10 @@ export function setSoundEnabled(v: boolean) {
 type Voice = "hover" | "click" | "on" | "reveal";
 
 const VOICES: Record<Voice, { freq: number; to: number; dur: number; gain: number; type: OscillatorType }> = {
-  hover: { freq: 1180, to: 1320, dur: 0.05, gain: 0.02, type: "sine" },
-  click: { freq: 540, to: 220, dur: 0.11, gain: 0.06, type: "triangle" },
-  on: { freq: 420, to: 880, dur: 0.16, gain: 0.05, type: "sine" },
-  reveal: { freq: 300, to: 460, dur: 0.14, gain: 0.025, type: "sine" },
+  hover: { freq: 1180, to: 1320, dur: 0.05, gain: 0.055, type: "sine" },
+  click: { freq: 540, to: 220, dur: 0.11, gain: 0.12, type: "triangle" },
+  on: { freq: 420, to: 880, dur: 0.16, gain: 0.1, type: "sine" },
+  reveal: { freq: 300, to: 460, dur: 0.14, gain: 0.06, type: "sine" },
 };
 
 export function blip(voice: Voice = "hover") {
