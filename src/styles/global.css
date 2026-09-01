@@ -6,6 +6,9 @@
 	--color-signal: oklch(82% 0.16 185);
 	--color-muted: oklch(68% 0.04 250);
 	--color-line: oklch(48% 0.05 250 / 0.35);
+	--scroll-progress: 0;
+	--pointer-x: 50vw;
+	--pointer-y: 20vh;
 	/* Colors */
 	--gray-0: #f8fafc;
 	--gray-50: #e2e8f0;
@@ -254,7 +257,8 @@ h5 {
 
 /* Product-showcase visual layer */
 body { background: var(--color-void); }
-.backgrounds { background-color: var(--color-void) !important; background-image: linear-gradient(rgba(34,211,238,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,.035) 1px, transparent 1px), radial-gradient(circle at 12% 10%, rgba(34,211,238,.12), transparent 35%), radial-gradient(circle at 88% 45%, rgba(34,197,94,.08), transparent 35%) !important; background-size: 4rem 4rem, 4rem 4rem, auto, auto !important; background-blend-mode: normal !important; }
+.backgrounds { background-color: var(--color-void) !important; background-image: radial-gradient(600px circle at var(--pointer-x) var(--pointer-y), rgba(34,211,238,.09), transparent 55%), linear-gradient(rgba(34,211,238,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,.035) 1px, transparent 1px), radial-gradient(circle at 88% 45%, rgba(34,197,94,.08), transparent 35%) !important; background-size: auto, 4rem 4rem, 4rem 4rem, auto !important; background-blend-mode: normal !important; }
+.scroll-rail { position: fixed; z-index: 10000; left: 0; top: 0; width: calc(var(--scroll-progress) * 100%); height: 2px; background: var(--accent-regular); box-shadow: 0 0 16px var(--accent-regular); pointer-events: none; }
 .page { padding-top: 4rem; }
 .hero { min-height: 72vh; padding: 8rem 0 5rem; }
 .hero-title { font-size: clamp(3.8rem, 10vw, 8rem); letter-spacing: -.06em; background: linear-gradient(120deg, var(--gray-0) 35%, var(--accent-regular)); -webkit-background-clip: text; background-clip: text; color: transparent; }

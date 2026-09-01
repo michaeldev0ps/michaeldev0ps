@@ -25,6 +25,25 @@ const { title, description } = Astro.props;
 			<slot />
 			<Footer />
 		</div>
+		<script is:inline>
+			const root = document.documentElement;
+			const rail = document.createElement('div');
+			rail.className = 'scroll-rail';
+			rail.setAttribute('aria-hidden', 'true');
+			document.body.append(rail);
+			const updateProgress = () => {
+				const max = document.documentElement.scrollHeight - window.innerHeight;
+				root.style.setProperty('--scroll-progress', `${max ? window.scrollY / max : 0}`);
+			};
+			window.addEventListener('scroll', updateProgress, { passive: true });
+			updateProgress();
+			if (!matchMedia('(pointer: coarse)').matches) {
+				document.addEventListener('pointermove', (event) => {
+					root.style.setProperty('--pointer-x', `${event.clientX}px`);
+					root.style.setProperty('--pointer-y', `${event.clientY}px`);
+				});
+			}
+		</script>
 
 		<style>
 			:root {
