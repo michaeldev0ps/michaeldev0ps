@@ -1,5 +1,11 @@
 /* Global variables */
 :root {
+	/* OKLCH design tokens for shared theming and dark mode. */
+	--color-void: oklch(14% 0.02 250);
+	--color-surface: oklch(19% 0.03 250 / 0.9);
+	--color-signal: oklch(82% 0.16 185);
+	--color-muted: oklch(68% 0.04 250);
+	--color-line: oklch(48% 0.05 250 / 0.35);
 	/* Colors */
 	--gray-0: #f8fafc;
 	--gray-50: #e2e8f0;
@@ -245,6 +251,10 @@ h5 {
 		scroll-behavior: auto !important;
 	}
 }
+
+.card { position: relative; }
+.card::after { content: ""; position: absolute; right: 1.25rem; top: 1.25rem; width: .45rem; height: .45rem; border-radius: 50%; background: var(--color-signal); animation: status-pulse 2.4s ease-out infinite; }
+@keyframes status-pulse { 0%, 100% { box-shadow: 0 0 0 0 var(--accent-overlay); opacity: .7; } 50% { box-shadow: 0 0 0 .5rem transparent; opacity: 1; } }
 
 .section {
 	padding: 3rem 0;
