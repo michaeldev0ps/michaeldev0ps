@@ -16,7 +16,20 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://michaeldev0ps.vercel.app/" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "MichaelDevOps",
+          alternateName: "Michael DevOps",
+          url: "https://michaeldev0ps.vercel.app/",
+        }),
+      },
     ],
   }),
   component: Index,

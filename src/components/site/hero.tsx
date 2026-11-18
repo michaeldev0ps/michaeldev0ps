@@ -76,7 +76,7 @@ export function Hero() {
             uptime: available for work
           </motion.div>
 
-          <h1 className="font-display text-[clamp(2.6rem,8vw,6rem)] font-bold leading-[0.92] tracking-tight">
+          <h1 className="font-display text-[clamp(2rem,10vw,6rem)] font-bold leading-[0.92] tracking-tight">
             <span className="block whitespace-nowrap">
               {HEADLINE.map((c, i) => (
                 <motion.span
